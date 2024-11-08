@@ -8,10 +8,7 @@
 text, tspan {white-space: pre;}
 .ascii {fill: #333333;} /* Darker shade for ASCII text */
 </style>
-
 <rect width="970px" height="540px" fill="#f6f8fa" rx="15"/>
-
-
 <text x="15" y="30" fill="#c9d1d9" class="ascii">
   <tspan x="15" y="30">     -#*== @@@@@@@@@@@@@@@%*-:..         </tspan>
   <tspan x="15" y="50">    =@=% @@@@@@@@@@@@@@@@@@@@@%+..       </tspan>

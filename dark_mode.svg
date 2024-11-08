@@ -7,7 +7,6 @@
 .commentColor {fill: #8b949e;}
 text, tspan {white-space: pre; fill: #ffffff;} /* Set text color to white */
 </style>
-
 <rect width="970px" height="540px" fill="#161b22" rx="15"/>
 
 <text x="15" y="30" class="ascii">
@@ -36,15 +35,13 @@ text, tspan {white-space: pre; fill: #ffffff;} /* Set text color to white */
   <tspan x="15" y="470">    @@   *#+       %@@@@@@@@@+=%       </tspan>
   <tspan x="15" y="490">@@@-      #**=       :+: *@@* :        </tspan>
   <tspan x="15" y="510">      .    +#++=.           .          </tspan>
-  <tspan x="15" y="530">. ..--.     =##+==-      .@@             </tspan>
-  <tspan x="15" y="550">      :--     *#*****+=*#@@              </tspan>
-  <tspan x="15" y="570">...:-.:..=+     @%@@@@%@@@@.   @@@@@@@@  </tspan>
+  <tspan x="15" y="530">. ..--.     =##+==-      .@@@@         </tspan>
 </text>
 
 <text x="370" y="30" fill="#c9d1d9">
 <tspan x="370" y="30">Parley04</tspan>
   <tspan x="370" y="50">——————</tspan>
-  <tspan x="370" y="70" class="keyColor">OS</tspan>: <tspan class="valueColor">23 years, 2 months, 26 days</tspan>
+  <tspan x="370" y="70" class="keyColor">OS</tspan>: <tspan class="valueColor">Fullstack Developer</tspan>
   <tspan x="370" y="90" class="keyColor">Uptime</tspan>: <tspan class="valueColor">23 years, 2 months, 26 days</tspan>
   <tspan x="370" y="110" class="keyColor">Host</tspan>: <tspan class="valueColor">Ostim Technical University</tspan><tspan class="commentColor"> #OTU</tspan>
   <tspan x="370" y="130" class="keyColor">Kernel</tspan>: <tspan class="valueColor">Software Engineering</tspan><tspan class="commentColor"> #SE</tspan>
@@ -77,10 +74,10 @@ text, tspan {white-space: pre; fill: #ffffff;} /* Set text color to white */
   <tspan x="370" y="430" class="keyColor">Discord</tspan>: <tspan class="valueColor">emre.mp4</tspan>
 
   <tspan x="370" y="470" class="keyColor">GitHub Stats</tspan>:
-  <tspan x="370" y="490">14</tspan>
-  <tspan x="370" y="510" class="keyColor">Repos</tspan>: <tspan class="valueColor">25</tspan> {<tspan class="keyColor">Contributed</tspan>: <tspan class="valueColor">365    </tspan>}  | <tspan class="keyColor">Commits</tspan>: <tspan class="valueColor">0</tspan> | <tspan class="keyColor">Stars</tspan>: <tspan class="valueColor">3   </tspan>
+  <tspan x="370" y="490">——————</tspan>
+  <tspan x="370" y="510" class="keyColor">Repos</tspan>: <tspan class="valueColor">14</tspan> {<tspan class="keyColor">Contributed</tspan>: <tspan class="valueColor">25</tspan>}  | <tspan class="keyColor">Commits</tspan>: <tspan class="valueColor">365    </tspan> | <tspan class="keyColor">Stars</tspan>: <tspan class="valueColor">0</tspan>
 
-  <tspan x="370" y="530" class="keyColor">Followers</tspan>: <tspan class="valueColor">887,712</tspan> | <tspan class="keyColor">951,042++</tspan>: <tspan class="valueColor">63,330--</tspan> (<tspan class="addColor">950,012++</tspan>, <tspan class="delColor">63,213--</tspan>)
+  <tspan x="370" y="530" class="keyColor">Followers</tspan>: <tspan class="valueColor">3   </tspan> | <tspan class="keyColor">Lines of Code</tspan>: <tspan class="valueColor">887,712</tspan> (<tspan class="addColor">951,042++</tspan>, <tspan class="delColor">63,330--</tspan>)
 </text>
 
 </svg>
