@@ -424,7 +424,7 @@ def formatter(query_type, difference, funct_return=False, whitespace=0):
         return f"{'{:,}'.format(funct_return): <{whitespace}}"
     return funct_return
 
-
+ 
 if __name__ == '__main__':
     
     print('Calculation times:')
