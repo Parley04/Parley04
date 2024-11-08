@@ -78,9 +78,9 @@ text, tspan {white-space: pre; fill: #ffffff;} /* Set text color to white */
 
   <tspan x="370" y="470" class="keyColor">GitHub Stats</tspan>:
   <tspan x="370" y="490">14</tspan>
-  <tspan x="370" y="510" class="keyColor">Repos</tspan>: <tspan class="valueColor">25</tspan> {<tspan class="keyColor">Contributed</tspan>: <tspan class="valueColor">361    </tspan>}  | <tspan class="keyColor">Commits</tspan>: <tspan class="valueColor">0</tspan> | <tspan class="keyColor">Stars</tspan>: <tspan class="valueColor">3   </tspan>
+  <tspan x="370" y="510" class="keyColor">Repos</tspan>: <tspan class="valueColor">25</tspan> {<tspan class="keyColor">Contributed</tspan>: <tspan class="valueColor">363    </tspan>}  | <tspan class="keyColor">Commits</tspan>: <tspan class="valueColor">0</tspan> | <tspan class="keyColor">Stars</tspan>: <tspan class="valueColor">3   </tspan>
 
-  <tspan x="370" y="530" class="keyColor">Followers</tspan>: <tspan class="valueColor">887,706</tspan> | <tspan class="keyColor">951,022++</tspan>: <tspan class="valueColor">63,316--</tspan> (<tspan class="addColor">950,012++</tspan>, <tspan class="delColor">63,213--</tspan>)
+  <tspan x="370" y="530" class="keyColor">Followers</tspan>: <tspan class="valueColor">887,711</tspan> | <tspan class="keyColor">951,030++</tspan>: <tspan class="valueColor">63,319--</tspan> (<tspan class="addColor">950,012++</tspan>, <tspan class="delColor">63,213--</tspan>)
 </text>
 
 </svg>
