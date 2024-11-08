@@ -6,10 +6,6 @@ from xml.dom import minidom
 import time
 import hashlib
 
-if os.access('README.md', os.W_OK):
-    print("README.md dosyasına yazma izni var.")
-else:
-    print("README.md dosyasına yazma izni yok.")
 # Fine-grained personal access token with All Repositories access:
 # Account permissions: read:Followers, read:Starring, read:Watching
 # Repository permissions: read:Commit statuses, read:Contents, read:Issues, read:Metadata, read:Pull Requests
