@@ -440,7 +440,7 @@ if __name__ == '__main__':
     repo_data, repo_time = perf_counter(graph_repos_stars, 'repos', ['OWNER'])
     contrib_data, contrib_time = perf_counter(graph_repos_stars, 'repos', ['OWNER', 'COLLABORATOR', 'ORGANIZATION_MEMBER'])
     follower_data, follower_time = perf_counter(follower_getter, USER_NAME)
-    OWNER_ID = os.environ('OWNER_ID')
+    OWNER_ID = os.environ.get('OWNER_ID')
     if OWNER_ID == {'id': OWNER_ID}:
         archived_data = add_archive()
         for index in range(len(total_loc)-1):
