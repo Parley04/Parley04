@@ -43,10 +43,23 @@ def format_plural(unit):
 def simple_request(func_name, query, variables):
     """
     Returns a request, or raises an Exception if the response does not succeed.
+    Retries on temporary server errors (502, 503, 504).
     """
-    request = requests.post('https://api.github.com/graphql', json={'query': query, 'variables':variables}, headers=HEADERS)
-    if request.status_code == 200:
-        return request
+    request = None
+    for attempt in range(5):
+        try:
+            request = requests.post('https://api.github.com/graphql', json={'query': query, 'variables': variables}, headers=HEADERS, timeout=60)
+        except requests.exceptions.RequestException:
+            time.sleep(5 * (attempt + 1))
+            continue
+        if request.status_code == 200:
+            return request
+        if request.status_code in (502, 503, 504):
+            time.sleep(5 * (attempt + 1))
+            continue
+        break
+    if request is None:
+        raise Exception(func_name, ' has failed: no response from GitHub', QUERY_COUNT)
     raise Exception(func_name, ' has failed with a', request.status_code, request.text, QUERY_COUNT)
 
 
@@ -109,6 +122,7 @@ def graph_repos_stars(count_type, owner_affiliation, cursor=None, add_loc=0, del
 def recursive_loc(owner, repo_name, data, cache_comment, addition_total=0, deletion_total=0, my_commits=0, cursor=None):
     """
     Uses GitHub's GraphQL v4 API and cursor pagination to fetch 100 commits from a repository at a time
+    Retries on temporary server errors (502, 503, 504).
     """
     query_count('recursive_loc')
     query = '''
@@ -144,16 +158,31 @@ def recursive_loc(owner, repo_name, data, cache_comment, addition_total=0, delet
         }
     }'''
     variables = {'repo_name': repo_name, 'owner': owner, 'cursor': cursor}
-    request = requests.post('https://api.github.com/graphql', json={'query': query, 'variables':variables}, headers=HEADERS) # I cannot use simple_request(), because I want to save the file before raising Exception
-    if request.status_code == 200:
+    request = None
+    for attempt in range(5):
+        try:
+            request = requests.post('https://api.github.com/graphql', json={'query': query, 'variables': variables}, headers=HEADERS, timeout=60) # I cannot use simple_request(), because I want to save the file before raising Exception
+        except requests.exceptions.RequestException:
+            time.sleep(5 * (attempt + 1))
+            continue
+        if request.status_code == 200:
+            break
+        if request.status_code in (502, 503, 504):
+            time.sleep(5 * (attempt + 1))  # 5, 10, 15, 20, 25 sn bekle
+            continue
+        break
+
+    if request is not None and request.status_code == 200:
         if request.json()['data']['repository']['defaultBranchRef'] != None: # Only count commits if repo isn't empty
             return loc_counter_one_repo(owner, repo_name, data, cache_comment, request.json()['data']['repository']['defaultBranchRef']['target']['history'], addition_total, deletion_total, my_commits)
         else: return 0
+
     force_close_file(data, cache_comment) # saves what is currently in the file before this program crashes
+    if request is None:
+        raise Exception('recursive_loc() has failed: no response from GitHub', QUERY_COUNT)
     if request.status_code == 403:
         raise Exception('Too many requests in a short amount of time!\nYou\'ve hit the non-documented anti-abuse limit!')
     raise Exception('recursive_loc() has failed with a', request.status_code, request.text, QUERY_COUNT)
-
 
 def loc_counter_one_repo(owner, repo_name, data, cache_comment, history, addition_total, deletion_total, my_commits):
     """
